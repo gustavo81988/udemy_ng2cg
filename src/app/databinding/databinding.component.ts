@@ -12,4 +12,8 @@ export class DatabindingComponent  {
   public onTest(): boolean{
     return true;
   }
+
+  public onClicked(value:string): void{
+    alert(value);
+  }
 }

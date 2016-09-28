@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'fa-event-binding',
@@ -9,8 +9,10 @@ import { Component } from '@angular/core';
 })
 export class EventBindingComponent {
 
-  onClicked(){
-    alert('It worked!');
+  @Output() clicked = new EventEmitter();
+
+  public onClicked(): void {
+    this.clicked.emit('It works!');
   }
   
 }
