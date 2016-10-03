@@ -9,7 +9,8 @@ import { HighlightDirective } from './highlight.directive';
 export class AppComponent {
   
   private switch = true;
-
+  private items  = [1,2,3,4,5];
+  
   public onSwitch(): void{
     this.switch = !this.switch;
   }
