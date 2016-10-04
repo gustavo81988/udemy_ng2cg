@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { LogService } from './log.service';
+import { DataService } from './data.service';
 
 @Component({
   selector: 'si-cmp-b',
@@ -21,16 +22,28 @@ import { LogService } from './log.service';
         <p>{{value}}</p>
     </div>
   `,
-  providers: [LogService]
+    providers: [LogService]
 })
 export class CmpBComponent {
-    
-  value = '';
 
-  constructor(private logService: LogService){}
+  value = '';
+  items: string[] = [];
+  
+  constructor(
+    private logService  : LogService,
+    private dataService : DataService
+  ){}
 
   public onLog(value: string): void{
     this.logService.writeToLog(value);
   };
+
+  public onStore(value: string): void {
+    this.dataService.addData(value);
+  }
+
+  public onGet(): void {
+    this.items = this.dataService.getData() ;
+  }
 
 }
