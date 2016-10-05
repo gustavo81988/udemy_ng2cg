@@ -23,7 +23,7 @@ import { DataService } from './data.service';
     </div>
   `
 })
-export class CmpAComponent {
+export class CmpAComponent  {
 
   value = '';
   items: string[] = [];
@@ -43,6 +43,10 @@ export class CmpAComponent {
 
   public onGet(): void {
     this.items = this.dataService.getData() ;
+  }
+
+  public onSend(value: string): void {
+    this.dataService.pushData(value) ;
   }
 
 }
