@@ -1,19 +1,20 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user',
   template: `
-    <h1>
-      User Component
-    </h1>
+    <h1>User Component</h1>
+    <button (click) = "onNavigate()">Go home</button>
   `,
   styles: []
 })
-export class UserComponent implements OnInit {
+export class UserComponent {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
-  ngOnInit() {
+  public onNavigate(): void{
+    this.router.navigate(['/']);
   }
 
 }
