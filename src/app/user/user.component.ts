@@ -18,7 +18,7 @@ export class UserComponent implements OnDestroy{
 
   constructor(private router: Router, private activatedRoute:ActivatedRoute) { 
     //this.id = activatedRoute.snapshot.params['id'];
-    activatedRoute.params.subscribe(
+    this.subscription = activatedRoute.params.subscribe(
       (param: any) => this.id = param['id'] 
     );
   }
